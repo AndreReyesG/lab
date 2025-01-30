@@ -1,2 +1,2 @@
 # The Lab
-In this repo is my playground.
+This repo is my playground.
