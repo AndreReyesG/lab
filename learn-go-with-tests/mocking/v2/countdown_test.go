@@ -39,6 +39,8 @@ func TestCountdown(t *testing.T) {
 
 	t.Run("sleep before every print", func(t *testing.T) {
 		spySleepPrinter := &SpyCountdownOperations{}
+		// We can use 'SpyCountdownOperations' in the first parameter
+		// because in this struct we use the Write method
 		Countdown(spySleepPrinter, spySleepPrinter)
 
 		want := []string{
