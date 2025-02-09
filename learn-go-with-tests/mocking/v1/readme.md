@@ -1,6 +1,5 @@
 # Mocking
 > [!NOTE]
-> Check <a target="_blank" href="https://martinfowler.com/bliki/TestDouble.html">Martin Flower's Test Double post</a>.
 > Check [Martin Flower's Test Double post](https://martinfowler.com/bliki/TestDouble.html).
 
 We have a dependency on `Sleep`ing which we need to extract so we can then control it in our tests.
