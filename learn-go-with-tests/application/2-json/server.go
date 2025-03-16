@@ -24,11 +24,7 @@ type Player struct {
 }
 
 func NewPlayerServer(store PlayerStore) *PlayerServer {
-	p := &PlayerServer{
-		store,
-		http.NewServeMux(),
-	}
-
+	p := new(PlayerServer)
 	p.store = store
 
 	router := http.NewServeMux()
