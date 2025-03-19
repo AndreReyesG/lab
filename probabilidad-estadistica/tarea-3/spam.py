@@ -1,4 +1,6 @@
-nuevo_mensaje = "free cable today"
+nuevo_mensaje = "free cable tv today"
+#nuevo_mensaje = "request energy price data"
+#nuevo_mensaje = "free cable tv today califragilisticoespialidoso"
 mensajes = []
 
 with open("enron_spam_filtrado.csv", mode="r", encoding="utf-8") as archivo:
@@ -14,8 +16,8 @@ with open("enron_spam_filtrado.csv", mode="r", encoding="utf-8") as archivo:
     total_spam = 0
     total_ham = 0
 
-    for i in range(total_mensajes):
-        if mensajes[i][0] == "spam":
+    for mensaje in mensajes:
+        if mensaje[0] == "spam":
             total_spam += 1
         else:
             total_ham += 1
@@ -25,33 +27,33 @@ with open("enron_spam_filtrado.csv", mode="r", encoding="utf-8") as archivo:
     
     # [Palabra, contador spam, contador ham]
     palabras = [[i, 0, 0] for i in nuevo_mensaje.split()]
-    
-    for i in range(len(mensajes)):
-        if mensajes[i][0] == "spam":
-            tipo_mensaje = 1
-        else:
-            tipo_mensaje = 2
-
-        for palabra in mensajes[i][1].split():
-            for j in range(len(palabras)):
-                if palabras[j][0] == palabra:
-                    palabras[j][tipo_mensaje] += 1
-
-    print(f"Palabras: {palabras}")
 
     # [P(palabra|spam), P(palabra|ham)]
-    probabilidades_palabras = [[palabra[1] / total_spam, palabra[2] / total_ham] for palabra in palabras]
+    probabilidad_palabras = []
 
-    print(f"Probabilidad palabras: {probabilidades_palabras}")
+    for palabra in palabras:
+        for mensaje in mensajes:
+            if palabra[0] in mensaje[1]:
+                if mensaje[0] == "spam":
+                    palabra[1] += 1
+                else:
+                    palabra[2] += 1
+        probabilidad_palabras.append([palabra[1] / total_spam, palabra[2] / total_ham])
+
+    print(f"Palabras con contador de spam y ham: {palabras}")
+    print(f"Probabilidad de palabras que sean SPAM o HAM: {probabilidad_palabras}")
 
     probabilidad_total_spam = probabilidad_spam
     probabilidad_total_ham = probabilidad_ham
 
-    for i in probabilidades_palabras:
+    for i in probabilidad_palabras:
         probabilidad_total_spam *= i[0]
         probabilidad_total_ham *= i[1]
+
+    print(f"Probabilidad que sea SPAM: {probabilidad_total_spam}")
+    print(f"Probabilidad que sea HAM: {probabilidad_total_ham}")
 
     if probabilidad_total_spam > probabilidad_total_ham:
         print(f"Mensaje '{nuevo_mensaje}' catalogado como SPAM")
     else:
-        print(f"Mensaje '{nuevo_mensaje}' catalogado como mensaje normal")
+        print(f"Mensaje '{nuevo_mensaje}' catalogado HAM")
