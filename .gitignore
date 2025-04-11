@@ -42,4 +42,7 @@ learn-java/mi-proyecto/dist/
 
 poo-sznajdlender/
 
+rust/playground/
 rust/hello_world/main
+rust/hello_cargo/target/
+rust/guessing_game/target/
