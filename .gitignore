@@ -46,3 +46,7 @@ rust/playground/
 rust/hello_world/main
 rust/hello_cargo/target/
 rust/guessing_game/target/
+rust/variables/target/
+
+zat/food_lines/food
+zat/food_lines/*.txt
