@@ -35,9 +35,6 @@ c-programming/coord/test
 c-programming/sznajdleder/
 c-programming/enums/
 
-kivy/env
-kivy/*.txt
-
 learn-java/mi-proyecto/bin/
 learn-java/mi-proyecto/dist/
 learn-java/*.class
