@@ -49,12 +49,3 @@ rust/variables/target/
 rust/functions/target/
 rust/branches/target/
 rust/loops/target/
-
-zat/food_lines/food
-zat/food_lines/*.txt
-zat/snowflakes/oaat.c
-zat/snowflakes/oaat
-zat/snowflakes/solution1/snow
-zat/snowflakes/solution1/*.txt
-zat/snowflakes/solution2/snow
-zat/snowflakes/solution2/*.txt
